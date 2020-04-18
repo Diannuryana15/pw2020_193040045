@@ -1,9 +1,9 @@
 <?php
 // koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "tubes_193040045");
+$conn = mysqli_connect("localhost", "root", "", "phpdasar");
 
 // ambil data dari tabel pakaian / query data pakaian
-$result = mysqli_query($conn, "SELECT * FROM pakaian");
+$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
 
 // ambil data (fetch) pakaian dari object result
 // mysqli_fetch_row() // mengembalikan array numerik
@@ -18,20 +18,21 @@ $result = mysqli_query($conn, "SELECT * FROM pakaian");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<h1>Toko Pakaian</h1>
+<h1>Daftar Mahasiswa</h1>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latihan5a</title>
+    <title>Halaman Admin</title>
 </head>
 <body>
     <table border="1" cellpadding="10" cellspacing="0">
     <tr>
         <th>No.</th>
         <th>Aksi</th>
-        <th>Foto</th>
-        <th>Jenis</th>
-        <th>Merk</th>
-        <th>Harga</th>
+        <th>gambar</th>
+        <th>nrp</th>
+        <th>nama</th>
+        <th>email</th>
+        <th>jurusan</th>
     </tr>
     <?php $i = 1; ?>
 <?php while( $row = mysqli_fetch_assoc($result) ) : ?>
@@ -41,10 +42,11 @@ $result = mysqli_query($conn, "SELECT * FROM pakaian");
         <a href="">ubah</a> |
         <a href="">hapus</a>
         </td>
-        <td><img src="assets/img/<?= $row["Foto"]; ?>  "width="100"></td>
-        <td><?= $row["Jenis"]; ?></td>
-        <td><?= $row["Merk"]; ?></td>
-        <td><?= $row["Harga"]; ?></td>
+        <td><img src="img/<?= $row["gambar"]; ?>  "width="100"></td>
+        <td><?= $row["nrp"]; ?></td>
+        <td><?= $row["nama"]; ?></td>
+        <td><?= $row["email"]; ?></td>
+        <td><?= $row["jurusan"]; ?></td>
     </tr>
     <?php $i++; ?>
 <?php endwhile; ?> 
