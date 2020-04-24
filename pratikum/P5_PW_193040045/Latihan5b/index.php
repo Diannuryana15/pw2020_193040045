@@ -19,7 +19,7 @@ $pakaian = query("SELECT * FROM pakaian")
         <th>No.</th>
         <th>Foto</th>
         <th>Jenis</th>
-        <th>Merk</th>
+        <th>Merk</th> 
         <th>Harga</th>
     </tr>
     <?php $i = 1 ?>
@@ -32,7 +32,7 @@ $pakaian = query("SELECT * FROM pakaian")
         <td><?= $pk["Harga"] ?></td>
     </tr>
     <?php $i++ ?>
-<?php endforeach; ?> 
-    </table>
-</body>
+            <?php endforeach; ?> 
+        </table>
+    </body>
 </html>
