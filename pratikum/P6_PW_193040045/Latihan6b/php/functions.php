@@ -27,9 +27,11 @@ function tambah($data)
     $merk = htmlspecialchars($data['Merk']);
     $harga = htmlspecialchars($data['Harga']);
 
-    $query = "INSERT * INTO pakaian VALUES
+    $query = "INSERT INTO pakaian
+                 VALUES
           ('', '$foto', '$jenis', '$merk', $harga')";
 
     mysqli_query($conn, $query);
+
     return mysqli_affected_rows($conn);
 }

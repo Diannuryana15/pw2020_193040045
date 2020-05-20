@@ -1,0 +1,21 @@
+img {
+  width: 150px;
+}
+
+.container .card
+{
+width: 100px;
+}
+
+.table {
+  color: white;
+}
+
+.table a {
+  color: lawngreen;
+}
+
+body{
+  background-color: rgb(48, 127, 138);
+  font-family: 'poppins' , sans-serif;
+}

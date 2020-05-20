@@ -18,6 +18,8 @@ function query($sql)
     }
     return $rows;
 }
+
+
 function tambah($data)
 {
     $conn = koneksi();
@@ -27,10 +29,12 @@ function tambah($data)
     $merk = htmlspecialchars($data['Merk']);
     $harga = htmlspecialchars($data['Harga']);
 
-    $query = "INSERT * INTO pakaian VALUES
-          ('', '$foto', '$jenis', '$merk', $harga')";
+    $query = " INSERT INTO pakaian
+                VALUES
+                (null, '$foto', '$jenis', '$merk','$harga')";
 
     mysqli_query($conn, $query);
+
     return mysqli_affected_rows($conn);
 }
 
@@ -41,11 +45,12 @@ function hapus($id)
     return mysqli_affected_rows($conn);
 }
 
+
 function ubah($data)
 {
     $conn = koneksi();
 
-    $id = htmlspecialchars($data['id']);
+    $id = $data['id'];
     $foto = htmlspecialchars($data['Foto']);
     $jenis = htmlspecialchars($data['Jenis']);
     $merk = htmlspecialchars($data['Merk']);
@@ -53,11 +58,11 @@ function ubah($data)
 
     $query = "UPDATE pakaian 
                 SET 
-                Foto = '$foto'
-                Jenis = '$jenis'
-                Merk = '$merk'
+                Foto = '$foto',
+                Jenis = '$jenis',
+                Merk = '$merk',
                 Harga = '$harga'
-                ";
+                WHERE id = '$id' ";
 
 
     mysqli_query($conn, $query);
@@ -70,17 +75,17 @@ function registrasi($data)
     $username = htmlspecialchars($data['username']);
     $password = htmlspecialchars($data['password']);
 
-    $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE username = 'username' ");
     if (mysqli_fetch_assoc($result)) {
         echo "<script>
     alert('Username sudah digunakan');
     </script>";
+        return false;
     }
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "INSERT * INTO user VALUES
-          ('', '$username', '$password')";
+    $query = "INSERT INTO user VALUES(null, '$username', '$password')";
 
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);

@@ -14,9 +14,11 @@ $pakaian = query("SELECT * FROM pakaian");
 </head>
 
 <body>
-  <a href="tambah.php">
-    <button type="submit">Tambah Data</button>
-  </a>
+  <div class="add">
+    <a href="tambah.php">
+      <button type="submit">Tambah Data</button>
+    </a>
+  </div>
 
   <table border="1">
     <tr>

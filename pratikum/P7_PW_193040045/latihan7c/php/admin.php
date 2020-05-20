@@ -1,22 +1,23 @@
 <?php
-require 'functions.php';
 session_start();
+require 'functions.php';
 
 if (!isset($_SESSION['username'])) {
   header("location: login.php");
 }
 
-
 if (isset($_GET['cari'])) {
   $keyword = $_GET['keyword'];
-  $pakaian = query("SELECT *  FROM pakaian WHERE 
-        Foto LIKE '%keyword%' 
-        Jenis LIKE '%keyword%'
-        Merk LIKE '%keyword%'
-        Harga LIKE '%keyword%'
+  $pakaian = query("SELECT * FROM pakaian WHERE 
+        Foto LIKE '%$keyword%'  OR
+        Jenis LIKE '%$keyword%' OR
+        Merk LIKE '%$keyword%'  OR
+        Harga LIKE '%$keyword%' 
          ");
+} else {
+  $pakaian = query("SELECT * FROM pakaian");
 }
-$pakaian = query("SELECT * FROM pakaian");
+
 ?>
 
 <!DOCTYPE html>

@@ -32,7 +32,7 @@ if (isset($_POST['tambah'])) {
           <label for="Foto">Foto</label>
         </td>
         <td>
-          <input type="text" name="Foto">
+          <input type="text" name="Foto" id="Foto" required>
         </td>
       </tr>
       <tr>
@@ -40,7 +40,7 @@ if (isset($_POST['tambah'])) {
           <label for="Jenis">Jenis Pakaian</label>
         </td>
         <td>
-          <input type="text" name="Jenis">
+          <input type="text" name="Jenis" id="Jenis" required>
         </td>
       </tr>
       <tr>
@@ -48,7 +48,7 @@ if (isset($_POST['tambah'])) {
           <label for="Merk">Merk Pakaian</label>
         </td>
         <td>
-          <input type="text" name="Merk">
+          <input type="text" name="Merk" id="Merk" required>
         </td>
       </tr>
       <tr>
@@ -56,7 +56,7 @@ if (isset($_POST['tambah'])) {
           <label for="Harga">Harga Pakaian</label>
         </td>
         <td>
-          <input type="text" name="Harga">
+          <input type="text" name="Harga" id="Harga" required>
         </td>
       </tr>
     </table>
